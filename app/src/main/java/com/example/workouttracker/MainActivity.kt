@@ -22,5 +22,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, StepsActivity::class.java)
             startActivity(intent)
         }
+        heartButton.setOnClickListener{
+            val intent = Intent(this,HeartActivity::class.java)
+            startActivity(intent)
+        }
         }
     }
