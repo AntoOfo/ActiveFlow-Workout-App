@@ -9,6 +9,8 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.Manifest
+import android.content.Intent
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -30,6 +32,7 @@ class HeartActivity : AppCompatActivity(), SensorEventListener {
         setContentView(R.layout.activity_heart)
 
         val heartHeader = findViewById<TextView>(R.id.heartHeader)
+        val heartBackButton = findViewById<Button>(R.id.heartbackBtn)
         monitor = findViewById<TextView>(R.id.monitorText)
 
         sensorManager =
@@ -43,6 +46,11 @@ class HeartActivity : AppCompatActivity(), SensorEventListener {
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BODY_SENSORS), 1)
         }
+        heartBackButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         }
 
     override fun onResume() {
