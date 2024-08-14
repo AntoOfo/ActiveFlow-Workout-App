@@ -1,6 +1,7 @@
 package com.example.workouttracker
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +10,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.widget.Button
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.math.sqrt
@@ -29,6 +31,7 @@ class StepsActivity : AppCompatActivity(), SensorEventListener {        // bring
 
         val stepTitle = findViewById<TextView>(R.id.stepsTitle)
         val stepsCounter = findViewById<TextView>(R.id.stepCounter)
+        val backButton = findViewById<Button>(R.id.backBtn)
 
         sensorManager =
             getSystemService(Context.SENSOR_SERVICE) as SensorManager   // initialises sensormanager
@@ -38,6 +41,11 @@ class StepsActivity : AppCompatActivity(), SensorEventListener {        // bring
         lastAcceleration = SensorManager.GRAVITY_EARTH
         currentAcceleration = SensorManager.GRAVITY_EARTH
         acceleration = 0.00f
+
+        backButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
