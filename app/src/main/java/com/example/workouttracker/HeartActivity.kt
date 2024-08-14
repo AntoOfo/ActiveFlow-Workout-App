@@ -80,7 +80,7 @@ class HeartActivity : AppCompatActivity(), SensorEventListener {
         }
     }
 
-    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
-        TODO("Not yet implemented")
+    override fun onAccuracyChanged(event: Sensor?, accuracy: Int) {
+        // null
     }
 }
