@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Workout Tracker</string>
-
-    <string name="spinner_item1">Sedentary </string>
-    <string name="spinner_item2">Lightly Active</string>
-    <string name="spinner_item3">Moderately Active</string>
-    <string name="spinner_item4">Very Active</string>
-    <string name="spinner_item5">Super Active</string>
+    <string name="spinner_item1">Item 1</string>
+    <string name="spinner_item2">Item 2</string>
+    <string name="spinner_item3">Item 3</string>
+    <string name="spinner_item4">Item 4</string>
+    <string name="spinner_item5">Item 5</string>
 </resources>
