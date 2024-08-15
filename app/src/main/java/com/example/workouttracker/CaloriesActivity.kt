@@ -23,6 +23,7 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         "Moderately Active", "Very Active", "Super Active")
 
     lateinit var radioGrp: RadioGroup       // creating radiogroup variable
+    lateinit var selectedActivityLevel: String  // variable to store dropdown item
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +40,12 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         val dropdown = findViewById<Spinner>(R.id.activityDropdown)
         dropdown.onItemSelectedListener = this  // tells which item in list is clicked
         // array adapter adds list items to dropdown
-        val add: ArrayAdapter<*> = ArrayAdapter<Any?>(this,
-                                        android.R.layout.simple_spinner_item, levels)
-        dropdown.adapter = add      // binds data to dropdown
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, levels)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        dropdown.adapter = adapter
+
+        // initialises with default selection
+        selectedActivityLevel = levels[dropdown.selectedItemPosition]
 
 
 
@@ -60,14 +64,15 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
             intent.putExtra("Height", height)   // int
             intent.putExtra("Age", age)         // int
             intent.putExtra("Gender", gender)   // string
+            intent.putExtra("ActivityLevel", selectedActivityLevel)  // string
 
             startActivity(intent)
         }
         }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
-
-        Toast.makeText(applicationContext, levels[position], Toast.LENGTH_LONG).show()
+        selectedActivityLevel = levels[position]    // updates variable
+        Toast.makeText(applicationContext, selectedActivityLevel, Toast.LENGTH_LONG).show()
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
