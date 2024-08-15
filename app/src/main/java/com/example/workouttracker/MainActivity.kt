@@ -26,5 +26,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,HeartActivity::class.java)
             startActivity(intent)
         }
+        caloriesButton.setOnClickListener{
+            val intent = Intent(this, CaloriesActivity::class.java)
+            startActivity(intent)
+        }
         }
     }

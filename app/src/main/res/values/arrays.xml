@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_items">
+        <item>@string/spinner_item1</item>
+        <item>@string/spinner_item2</item>
+        <item>@string/spinner_item3</item>
+        <item>@string/spinner_item4</item>
+        <item>@string/spinner_item5</item>
+    </string-array>
+</resources>
