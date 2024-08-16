@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import kotlin.math.round
 
 class CalDisplayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,37 @@ class CalDisplayActivity : AppCompatActivity() {
         val weight = intent.getIntExtra("Weight", 0)
         val activityLevel = intent.getStringExtra("ActivityLevel")
 
+        var bmr = 0    // basal metabolic rate
+        var doubleBmr = bmr.toDouble()
+        var tdee = 0
+        var doubleTdee = tdee.toDouble()
+
+        val activityRates = when (activityLevel) {
+            "Sedentary" -> 1.2
+            "Lightly Active" -> 1.375
+            "Moderately Active" -> 1.55
+            "Very Active" -> 1.725
+            "Super Active" -> 1.9
+            else -> 1.2
+        }
+
+        if (gender == "Male") {
+                doubleBmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
+                doubleTdee = doubleBmr * activityRates
+                val roundedTdee = doubleTdee.toInt()
+
+                caloriesResult.text = roundedTdee.toString()
+            }
+        else if (gender == "Female") {
+            doubleBmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age)
+            doubleTdee = doubleBmr * activityRates
+            val roundedTdee = doubleTdee.toInt()
+
+            caloriesResult.text = roundedTdee.toString()
+        }
 
         }
-    }
+
+
+        }
+
