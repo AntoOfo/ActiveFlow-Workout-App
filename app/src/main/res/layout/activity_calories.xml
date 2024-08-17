@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#101010"
     tools:context=".CaloriesActivity">
 
     <TextView
@@ -12,9 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:fontFamily="sans-serif-black"
-        android:text="How many calories did you burn today?"
-        android:textSize="20sp"
+        android:fontFamily="@font/barlow_condensed_bold"
+        android:text="Calories Burned"
+        android:textColor="#EDEADE"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,8 +25,10 @@
         android:id="@+id/genderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="152dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Gender:"
+        android:textColor="#EDEADE"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.078"
@@ -35,9 +39,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
@@ -45,13 +49,19 @@
             android:id="@+id/maleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:buttonTint="#EDEADE"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Male"
+            android:textColor="#90EDEADE" />
 
         <RadioButton
             android:id="@+id/femaleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female" />
+            android:buttonTint="#EDEADE"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Female"
+            android:textColor="#90EDEADE" />
     </RadioGroup>
 
     <TextView
@@ -59,7 +69,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="252dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Weight:"
+        android:textColor="#EDEADE"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.078"
@@ -72,6 +84,7 @@
         android:layout_height="57dp"
         android:layout_marginTop="232dp"
         android:hint="kg"
+        android:textColorHint="#40EDEADE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -81,7 +94,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="336dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Height:"
+        android:textColor="#EDEADE"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
@@ -94,6 +109,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="328dp"
         android:hint="cm"
+        android:textColorHint="#40EDEADE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +120,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="420dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Age:"
+        android:textColor="#EDEADE"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
@@ -117,6 +135,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="400dp"
         android:hint="age"
+        android:textColorHint="#40EDEADE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,6 +147,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="536dp"
         android:background="@android:drawable/btn_dropdown"
+        android:backgroundTint="#EDEADE"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -139,7 +159,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="492dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Activity Level:"
+        android:textColor="#EDEADE"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -150,11 +172,26 @@
         android:id="@+id/nextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="#F89A0F"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cbbackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="#F89A0F"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

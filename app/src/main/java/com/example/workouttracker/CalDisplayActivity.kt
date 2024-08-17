@@ -1,6 +1,8 @@
 package com.example.workouttracker
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,8 @@ class CalDisplayActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cal_display)
 
         val caloriesResult = findViewById<TextView>(R.id.caloriesResult)
+        val backBtn = findViewById<Button>(R.id.calbackBtn)
+
 
         val intent = intent  // create get intent object
 
@@ -38,6 +42,7 @@ class CalDisplayActivity : AppCompatActivity() {
             else -> 1.2
         }
 
+
         if (gender == "Male") {
                 doubleBmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
                 doubleTdee = doubleBmr * activityRates
@@ -51,6 +56,11 @@ class CalDisplayActivity : AppCompatActivity() {
             val roundedTdee = doubleTdee.toInt()
 
             caloriesResult.text = roundedTdee.toString()
+        }
+
+        backBtn.setOnClickListener{
+            val intent = Intent(this, CaloriesActivity::class.java)
+            startActivity(intent)
         }
 
         }

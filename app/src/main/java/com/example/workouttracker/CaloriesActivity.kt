@@ -35,6 +35,7 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         val ageInput = findViewById<TextInputEditText>(R.id.ageInput)
         val nextBtn = findViewById<Button>(R.id.nextBtn)
         radioGrp = findViewById(R.id.radioGroup)
+        val backBtn = findViewById<Button>(R.id.cbbackBtn)
 
 
         val dropdown = findViewById<Spinner>(R.id.activityDropdown)
@@ -66,6 +67,11 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
             intent.putExtra("Gender", gender)   // string
             intent.putExtra("ActivityLevel", selectedActivityLevel)  // string
 
+            startActivity(intent)
+        }
+
+        backBtn.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         }
