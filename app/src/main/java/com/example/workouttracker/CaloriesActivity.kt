@@ -49,26 +49,33 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         selectedActivityLevel = levels[dropdown.selectedItemPosition]
 
 
-
         nextBtn.setOnClickListener{
+            try {
+                val weight = weightInput.text.toString().toInt()
+                val height = heightInput.text.toString().toInt()
+                val age = ageInput.text.toString().toInt()
 
-            val weight = weightInput.text.toString().toInt()
-            val height = heightInput.text.toString().toInt()
-            val age = ageInput.text.toString().toInt()
+                val selectedId = radioGrp.checkedRadioButtonId  // gets ID of selected button
+                val selectedRadioButton = findViewById<RadioButton>(selectedId)
+                val gender = selectedRadioButton.text.toString()
 
-            val selectedId = radioGrp.checkedRadioButtonId  // gets ID of selected button
-            val selectedRadioButton = findViewById<RadioButton>(selectedId)
-            val gender = selectedRadioButton.text.toString()
+                val intent = Intent(this, CalDisplayActivity::class.java)
+                intent.putExtra("Weight", weight)   // int
+                intent.putExtra("Height", height)   // int
+                intent.putExtra("Age", age)         // int
+                intent.putExtra("Gender", gender)   // string
+                intent.putExtra("ActivityLevel", selectedActivityLevel)  // string
 
-            val intent = Intent(this, CalDisplayActivity::class.java)
-            intent.putExtra("Weight", weight)   // int
-            intent.putExtra("Height", height)   // int
-            intent.putExtra("Age", age)         // int
-            intent.putExtra("Gender", gender)   // string
-            intent.putExtra("ActivityLevel", selectedActivityLevel)  // string
-
-            startActivity(intent)
+                startActivity(intent)
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Please enter a valid number!", Toast.LENGTH_LONG).show()
+            } catch (e: IllegalArgumentException) {
+                Toast.makeText(this, "Please fill out form!", Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
+                Toast.makeText(this, "Unexpected error!", Toast.LENGTH_LONG).show()
+            }
         }
+
 
         backBtn.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
