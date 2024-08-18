@@ -1,15 +1,18 @@
 package com.example.workouttracker
 
 import android.content.Intent
+import android.graphics.Color
 import android.icu.text.Transliterator.Position
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,10 +43,27 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
         val dropdown = findViewById<Spinner>(R.id.activityDropdown)
         dropdown.onItemSelectedListener = this  // tells which item in list is clicked
-        // array adapter adds list items to dropdown
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, levels)
+
+        // custom arrayadapter for changing text colour
+        val adapter = object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, levels) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                // sets text colour for selected items
+                val view = super.getView(position, convertView, parent) as TextView
+                view.setTextColor(Color.BLACK)
+                return view
+            }
+
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                // sets text color for dropdown view
+                val view = super.getDropDownView(position, convertView, parent) as TextView
+                view.setTextColor(Color.WHITE)
+                return view
+            }
+        }
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         dropdown.adapter = adapter
+
 
         // initialises with default selection
         selectedActivityLevel = levels[dropdown.selectedItemPosition]
@@ -85,7 +105,7 @@ class CaloriesActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
         selectedActivityLevel = levels[position]    // updates variable
-        Toast.makeText(applicationContext, selectedActivityLevel, Toast.LENGTH_LONG).show()
+
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
